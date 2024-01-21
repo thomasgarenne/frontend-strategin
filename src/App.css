@@ -1,0 +1,21 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+span {
+  color: red;
+}
+
+input {
+  margin: 5px;
+  padding: 10px 20px;
+}
+
+.group-input {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
