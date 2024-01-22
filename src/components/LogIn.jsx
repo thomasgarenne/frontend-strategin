@@ -1,15 +1,17 @@
-import axios from "axios";
 import { useState } from "react";
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useAuth } from "../context/authContext";
 
-function Auth() {
+function LogIn() {
 	const [data, setData] = useState({
 		email: "",
 		password: ""
 	});
 
 	const [errors, setErrors] = useState({});
+
+	const { login } = useAuth();
 
 	const handleChange = (e) => {
 		const { name, value } = e.target;
@@ -23,33 +25,24 @@ function Auth() {
 		e.preventDefault();
 
 		if (validateForm()) {
-			axios.post("http://localhost:3000/login", data)
-				.then((response) => {
-					console.log(response);
-					toast.success(response.data.message);
-				})
-				.catch((error) => {
-					console.error(error);
-					toast.error(error.response.data);
-				});
-			}
+			login(data.email, data.password);
+		}
 	};
 
 	const validateForm = () => {
 		let isValid = true;
 		const newErrors = {};
 
-		// valid email
+		// Validation email
 		const emailRegex = /^[a-zA-Z0-9_.-]+@[a-zA-Z0-9_.-]+\.[a-zA-Z]{2,}$/;
 		if (!emailRegex.test(data.email)) {
 			newErrors.email = "You have entered an invalid email address!";
 			isValid = false;
 		}
 
-		// valid password
-		const passwordRegex = /^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.*[a-z]).{12,}$/;
-		if (!passwordRegex.test(data.password)) {
-			newErrors.password = "Password must contain at least one uppercase letter, one lowercase letter, one digit, one special character, and be at least 12 characters long.";
+		// Validation password
+		if (!data.password) {
+			newErrors.password = "Password required";
 			isValid = false;
 		}
 
@@ -80,4 +73,4 @@ function Auth() {
   )
 }
 
-export default Auth
+export default LogIn
