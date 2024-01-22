@@ -3,7 +3,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useAuth } from "../context/authContext";
 
-function LogIn() {
+function Login() {
 	const [data, setData] = useState({
 		email: "",
 		password: ""
@@ -73,4 +73,4 @@ function LogIn() {
   )
 }
 
-export default LogIn
+export default Login

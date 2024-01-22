@@ -8,7 +8,7 @@ export const AuthProvider = ({ children }) => {
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
 
     const login = (email, password) => {
-      axios.post("http://localhost:3000/login", { email, password })
+      axios.post("https://main--extraordinary-cassata-b86fdf.netlify.app/login", { email, password })
       .then((response) => {
         console.log(response);
         toast.success(response.data.message);

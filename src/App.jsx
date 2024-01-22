@@ -1,7 +1,7 @@
 import './App.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import SignIn from './components/SignIn.jsx'
-import LogIn from './components/LogIn.jsx'
+import Register from './components/Register.jsx'
+import Login from './components/LogIn.jsx'
 import Users from './components/Users.jsx'
 import ErrorPage from './components/ErrorPage.jsx'
 import Root from './components/Root.jsx'
@@ -15,11 +15,11 @@ const router = createBrowserRouter([
     children: [
       {
         index: 1,
-        element: <SignIn />,
+        element: <Register />,
       },
       {
         path: "login",
-        element: <LogIn />,
+        element: <Login />,
       },
       {
         path: "users",

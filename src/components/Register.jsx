@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 
-function SignIn() {
+function Register() {
 	const [data, setData] = useState({
 		email: "",
 		password: ""
@@ -25,7 +25,7 @@ function SignIn() {
 		e.preventDefault();
 
 		if (validateForm()) {
-			axios.post("http://localhost:3000/", data)
+			axios.post("https://main--extraordinary-cassata-b86fdf.netlify.app/", data)
 				.then((response) => {
 					console.log(response);
 					toast.success("Account create successfully 😊 👌");
@@ -88,4 +88,4 @@ function SignIn() {
   )
 }
 
-export default SignIn
+export default Register

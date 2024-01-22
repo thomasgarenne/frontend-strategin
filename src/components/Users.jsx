@@ -10,7 +10,7 @@ function Users() {
 	useEffect(() => {
 		const fetchUsers = async () => {
 			try {
-				const response = await axios.get("http://localhost:3000/users");
+				const response = await axios.get("https://main--extraordinary-cassata-b86fdf.netlify.app/users");
 				console.log(response);
 				setUsers(response.data);
 			} catch (error) {
