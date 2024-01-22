@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
+import baseURL from "../../config";
 
 function Register() {
 	const [data, setData] = useState({
@@ -25,7 +26,7 @@ function Register() {
 		e.preventDefault();
 
 		if (validateForm()) {
-			axios.post("https://main--extraordinary-cassata-b86fdf.netlify.app/", data)
+			axios.post(baseURL, data)
 				.then((response) => {
 					console.log(response);
 					toast.success("Account create successfully 😊 👌");

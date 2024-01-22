@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom";
+import baseURL from "../../config";
 
 function Users() {
 	const [users, setUsers] = useState([]);
@@ -10,7 +11,7 @@ function Users() {
 	useEffect(() => {
 		const fetchUsers = async () => {
 			try {
-				const response = await axios.get("https://main--extraordinary-cassata-b86fdf.netlify.app/users");
+				const response = await axios.get(`${baseURL}/users`);
 				console.log(response);
 				setUsers(response.data);
 			} catch (error) {

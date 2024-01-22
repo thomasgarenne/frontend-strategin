@@ -1,6 +1,7 @@
 import axios from "axios";
 import { createContext, useContext, useState } from "react";
 import { toast } from "react-toastify";
+import baseURL from "../../config";
 
 const AuthContext = createContext();
 
@@ -8,7 +9,7 @@ export const AuthProvider = ({ children }) => {
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
 
     const login = (email, password) => {
-      axios.post("https://main--extraordinary-cassata-b86fdf.netlify.app/login", { email, password })
+      axios.post(`${baseURL}/login`, { email, password })
       .then((response) => {
         console.log(response);
         toast.success(response.data.message);
